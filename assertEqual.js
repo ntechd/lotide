@@ -1,31 +1,38 @@
-function isNumber(n) {
-  return /^-?[\d.]+(?:e-?\d+)?$/.test(n);
-}
+const failed = 'Assertion failed :';
+const pass = 'Assertion Passed :';
 
-let commands = [
-  ["🛑", "🛑", "🛑"],
-  ["✅", "✅", "✅"]
-];
+
+function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); } 
+
+var commands = [
+    [  "🛑", "🛑","🛑"],
+    [  "✅", "✅", "✅"]
+  ];
 
 // FUNCTION IMPLEMENTATION
 const assertEqual = function(actual, expected) {
 
-  if (isNumber(actual) === true) {
+    if (isNumber(actual) === true){
 
-    if (actual === expected) {
-      return commands[0] + " Assertion failed : " + actual + " !== " + expected;
-    } else {
-      return commands[1] + "Assertion Passed : " + actual + " === " + expected;
+        if( actual === expected){
+            return  commands[1] + `${pass}` + actual +" === "+ expected;
+        }else{
+            return  commands[0] + `${failed}` + actual +" !== "+ expected;
+        }
+        
+
+    } else if (isNumber(actual) === false){
+
+        if( actual === expected){
+            return  commands[1] + `${pass}` + actual +" === "+ expected;
+        }else{
+            return  commands[0] + `${failed}` + actual +" !== "+ expected;
+        }
+        
+
     }
 
 
-  } else if (isNumber(actual) === false) {
-    if (actual === expected) {
-      return commands[0] + " Assertion failed : " + actual + " !== " + expected;
-    } else {
-      return commands[1] + "Assertion Passed : " + actual + " === " + expected;
-    }
-  }
 };
 
 console.log(assertEqual("Lighthouse Labs", "Bootcamp"));
