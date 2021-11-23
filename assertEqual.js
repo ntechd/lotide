@@ -2,35 +2,37 @@ const failed = 'Assertion failed :';
 const pass = 'Assertion Passed :';
 
 
-function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); } 
+function isNumber(n) {
+  return /^-?[\d.]+(?:e-?\d+)?$/.test(n);
+}
 
-var commands = [
-    [  "🛑", "🛑","🛑"],
-    [  "✅", "✅", "✅"]
-  ];
+let commands = [
+  [  "🛑", "🛑","🛑"],
+  [  "✅", "✅", "✅"]
+];
 
 // FUNCTION IMPLEMENTATION
 const assertEqual = function(actual, expected) {
 
-    if (isNumber(actual) === true){
+  if (isNumber(actual) === true) {
 
-        if( actual === expected){
-            return  commands[1] + `${pass}` + actual +" === "+ expected;
-        }else{
-            return  commands[0] + `${failed}` + actual +" !== "+ expected;
-        }
-        
-
-    } else if (isNumber(actual) === false){
-
-        if( actual === expected){
-            return  commands[1] + `${pass}` + actual +" === "+ expected;
-        }else{
-            return  commands[0] + `${failed}` + actual +" !== "+ expected;
-        }
-        
-
+    if (actual === expected) {
+      return  commands[1] + `${pass}` + actual + " === " + expected;
+    } else {
+      return  commands[0] + `${failed}` + actual + " !== " + expected;
     }
+        
+
+  } else if (isNumber(actual) === false) {
+
+    if (actual === expected) {
+      return  commands[1] + `${pass}` + actual + " === " + expected;
+    } else {
+      return  commands[0] + `${failed}` + actual + " !== " + expected;
+    }
+        
+
+  }
 
 
 };
