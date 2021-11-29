@@ -50,8 +50,7 @@ const findKey = function(obj , func) {
     	return a;
     }
   }
-}
-
+} 
 
 let result = findKey({
   "Blue Hill": { stars: 1 },

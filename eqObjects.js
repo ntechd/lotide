@@ -32,7 +32,7 @@ const assertObjectsEqual = function (actual, expected) {
   }
 };
 
-
+/*
 const eqObjects = function (obj1, obj2) {
   let flag = []
 
@@ -55,6 +55,31 @@ const eqObjects = function (obj1, obj2) {
     return true;
   }
 }
+*/
+
+const eqObjects = function(obj1,obj2) {
+  if(obj1 === obj2)
+    return true;
+
+  if(obj1==null || obj2==null || typeof obj1 !='object' || typeof obj2 != "object")
+    return false;
+
+  let obj1Keys = Object.keys(obj1);
+  let obj2Keys = Object.keys(obj2);
+
+  if(obj1Keys.length != obj2Keys.length)
+    return false
+
+  for(let v in obj1Keys)
+  {
+    let key = obj1Keys[v];
+    if( !obj2Keys.includes(key) || !eqObjects(obj1[key],obj2[key]))
+      return false
+  }
+  return true;
+
+
+}
 
 
 const ab = { a: "1", b: "2" };
@@ -71,3 +96,7 @@ console.log(assertEqual(eqObjects(cd, dc), true)); // => true
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
 console.log(assertEqual(eqObjects(cd, cd2), false )); // => false
+
+console.log(assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }),true)) // => true 
+console.log(assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }),false)) // => false 
+console.log(assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }),false)) // => false
