@@ -1,5 +1,6 @@
-// program to compare two arrays
-
+// program to compare two array
+const eqArrays = require("./eqArrays");
+/*
 function eqArrays (arr1, arr2) {
 
 	// compare arrays
@@ -14,12 +15,15 @@ function eqArrays (arr1, arr2) {
 	}
 
 }
+*/
 
 
 // FUNCTION IMPLEMENTATION
-const assertEqual = function(actual, expected) {
-	console.log(actual);
+const assertArraysEqual = function(arr1, arr2) {
+	let actual = eqArrays(arr1, arr2);
+	if (actual === true) console.log(`✅✅✅ Assertion Passed: ${actual} === ${true}`);
+	else console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${true}`);
+	
 };
 
-
-assertEqual(eqArrays([1,2,3], [1,2,3]), true);
+module.exports = assertArraysEqual;
