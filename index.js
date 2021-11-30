@@ -1,4 +1,5 @@
 // index.js
+
 const head   = require('./head');
 const tail   = require('./tail');
 const middle = require('./middle');
@@ -20,5 +21,5 @@ module.exports = {
 	assertObjectsEqual: [Function: assertObjectsEqual],
 	countLetters: countLetters,
 */
-}; 
+};
 
