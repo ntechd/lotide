@@ -1,3 +1,5 @@
+const assert = require("assert");
+
 const failed = 'Assertion failed :';
 const pass = 'Assertion Passed :';
 
@@ -36,6 +38,11 @@ const assertEqual = function(actual, expected) {
 
 
 };
-
+/*
 console.log(assertEqual("Lighthouse Labs", "Bootcamp"));
 console.log(assertEqual(1, 1));
+*/
+
+
+// EXPORTING THE FILE
+module.exports = assertEqual;
