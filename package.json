@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@najnpm/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lotide Project",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/ntechd/lotide.git"
   },
-  "author": "",
+  "author": "Najma",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ntechd/lotide/issues"
